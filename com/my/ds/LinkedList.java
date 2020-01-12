@@ -40,6 +40,21 @@ public class LinkedList {
 		return this;
 	}
 
+	// reverse The list
+	public LinkedList reverseList() {
+		this.reverse(this.getStart(), null);
+		return this;
+	}
+
+	private void reverse(LinkNode curr, LinkNode prev) {
+		if (curr.getNext() != null) {
+			reverse(curr.getNext(), curr);
+		} else {
+			this.setStart(curr);
+		}
+		curr.setNext(prev);
+	}
+
 	// Printing the list
 	public LinkedList printList() {
 		LinkNode temp = this.getStart();
